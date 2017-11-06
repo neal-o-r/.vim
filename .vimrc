@@ -14,6 +14,8 @@ set smartindent " Do smart indenting when starting a new line
 set autoindent  " Copy indent from current line, over to the new line
 set pastetoggle=<F3>
 
+map <C-n> :NERDTreeToggle<CR>
+
 " Set the tab width
 let s:tabwidth=8
 exec 'set tabstop='    .s:tabwidth
