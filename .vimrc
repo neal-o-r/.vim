@@ -15,6 +15,10 @@ set autoindent  " Copy indent from current line, over to the new line
 set pastetoggle=<F3>
 
 map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "right"
+
+map <Tab> <C-w>w
+map <Bar> :vsplit<CR>
 
 " Set the tab width
 let s:tabwidth=8
