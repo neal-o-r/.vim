@@ -19,6 +19,7 @@ let g:NERDTreeWinPos = "right"
 
 map <Tab> <C-w>w
 map <Bar> :vsplit<CR>
+nnoremap <bs> X
 
 " Set the tab width
 let s:tabwidth=8
