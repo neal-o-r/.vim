@@ -1,6 +1,8 @@
 " import pathogen
 execute pathogen#infect()  
 
+let g:pydiction_location = '/Users/nealo/.vim/bundle/pydiction/complete-dict'
+
 " turn off coloured background
 filetype plugin indent on
 if (has("autocmd") && !has("gui_running"))
@@ -33,9 +35,15 @@ nnoremap <bs> X
 vmap <expr>  ++  VMATH_YankAndAnalyse()
 nmap         ++  vip++
 
+" turn on the cursor position if not default
+set ruler
+
 " Set the tab width
 let s:tabwidth=8
 exec 'set tabstop='    .s:tabwidth
 exec 'set shiftwidth=' .s:tabwidth
 exec 'set softtabstop='.s:tabwidth
 :%retab!
+
+" breakpoints
+map B oimport pdf; pdb.set_trace()<esc> 
