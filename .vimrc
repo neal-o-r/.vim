@@ -46,4 +46,4 @@ exec 'set softtabstop='.s:tabwidth
 :%retab!
 
 " breakpoints
-map B oimport pdf; pdb.set_trace()<esc> 
+map B oimport pdb; pdb.set_trace()<esc> 
