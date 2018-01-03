@@ -8,7 +8,6 @@ if (has("autocmd") && !has("gui_running"))
     autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg":s:white })
 end
 
-
 " turn on colour scheme
 syntax on
 colorscheme onedark
@@ -51,7 +50,6 @@ exec 'set softtabstop='.s:tabwidth
 " breakpoints
 map B oimport pdb; pdb.set_trace()<esc>
 
-
 " Python linting
 let g:ale_linters = {'python': ['flake8']}
 let g:ale_enabled = 0
@@ -61,6 +59,15 @@ let g:ale_python_flake8_args="--ignore=E127,E126,E128"
 
 map AA :ALEToggle<CR>
 
-
 " get rid of trailing whitespace
 autocmd BufEnter *.py EnableStripWhitespaceOnSave
+
+" open lab book
+function! NBopen(nbtarget)
+	let t_nbyear=strpart(a:nbtarget, 0, 4)
+	let t_nbmonth=strpart(a:nbtarget, 0, 6)
+	let t_nbfile=a:nbtarget.".md"
+	let target_path="~/Desktop/labbook/".t_nbyear."/".t_nbmonth."/".t_nbfile
+	exec "edit ".target_path
+endfunction
+command! -nargs=1 NBopen call NBopen(<f-args>)
