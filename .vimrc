@@ -71,3 +71,10 @@ function! NBopen(nbtarget)
 	exec "edit ".target_path
 endfunction
 command! -nargs=1 NBopen call NBopen(<f-args>)
+
+" wrapping when writing docs
+augroup pencil
+	autocmd!
+	autocmd FileType markdown,mkd call pencil#init({'wrap': 'soft', 'autoformat': 0})
+	autocmd FileType text         call pencil#init({'wrap': 'soft', 'autoformat': 0})
+augroup END
