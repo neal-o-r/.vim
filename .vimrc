@@ -71,4 +71,3 @@ function! NBopen(nbtarget)
 	exec "edit ".target_path
 endfunction
 command! -nargs=1 NBopen call NBopen(<f-args>)
-
