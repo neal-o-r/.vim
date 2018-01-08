@@ -75,6 +75,9 @@ command! -nargs=1 NBopen call NBopen(<f-args>)
 " markdown folding off
 let g:vim_markdown_folding_disabled = 1
 
+" change frontmatter color, setext headerstyle conflict
+au BufNewFile,BufRead,BufWrite *.md syntax match Comment /\%^---\_.\{-}---$/
+
 let g:goyo_width=100
 
 function! s:goyo_enter()
