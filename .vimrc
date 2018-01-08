@@ -3,8 +3,6 @@ execute pathogen#infect()
 
 " turn off coloured background
 filetype plugin indent on
-filetype plugin on
-
 if (has("autocmd") && !has("gui_running"))
   let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
     autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg":s:white })
@@ -74,7 +72,9 @@ function! NBopen(nbtarget)
 endfunction
 command! -nargs=1 NBopen call NBopen(<f-args>)
 
-au! BufRead,BufNewFile *.md :setlocal tw=100 |exe "normal gqG" | Goyo
+" markdown folding off
+let g:vim_markdown_folding_disabled = 1
+
 let g:goyo_width=100
 
 " Quitting whether Goyo is active or not
@@ -86,3 +86,4 @@ function! Quit()
     endif
     quit
 endfunction
+
