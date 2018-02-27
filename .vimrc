@@ -65,7 +65,7 @@ autocmd BufEnter *.py EnableStripWhitespaceOnSave
 " open lab book
 function! NBopen(nbtarget)
 	let t_nbyear=strpart(a:nbtarget, 0, 4)
-	let t_nbmonth=strpart(a:nbtarget, 0, 6)
+	let t_nbmonth=strpart(a:nbtarget, 4, 2)
 	let t_nbfile=a:nbtarget.".md"
 	let target_path="~/Desktop/labbook/".t_nbyear."/".t_nbmonth."/".t_nbfile
 	exec "edit ".target_path
