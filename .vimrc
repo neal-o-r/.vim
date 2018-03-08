@@ -81,6 +81,8 @@ au BufNewFile,BufRead,BufWrite *.md syntax match Comment /\%^---\_.\{-}---$/
 let g:goyo_width=100
 
 function! s:goyo_enter()
+  set wraplinebreak tw=100
+  set formatoptions=ant
   let b:quitting = 0
   let b:quitting_bang = 0
   autocmd QuitPre <buffer> let b:quitting = 1
