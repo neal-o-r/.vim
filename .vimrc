@@ -1,6 +1,5 @@
 " import pathogen
 execute pathogen#infect()  
-
 " turn off coloured background
 filetype plugin indent on
 if (has("autocmd") && !has("gui_running"))
@@ -47,6 +46,7 @@ exec 'set shiftwidth=' .s:tabwidth
 exec 'set softtabstop='.s:tabwidth
 :%retab!
 
+
 " breakpoints
 map B oimport pdb; pdb.set_trace()<esc>
 
@@ -60,7 +60,9 @@ let g:ale_python_flake8_args="--ignore=E127,E126,E128"
 map AA :ALEToggle<CR>
 
 " get rid of trailing whitespace
-autocmd BufEnter *.py EnableStripWhitespaceOnSave
+let g:better_whitespace_enabled=0
+autocmd BufRead,BufNewFile *.py EnableStripWhitespaceOnSave
+autocmd BufRead,BufNewFile *.py EnableWhitespace
 
 " open lab book
 function! NBopen(nbtarget)
@@ -72,6 +74,10 @@ function! NBopen(nbtarget)
 endfunction
 command! -nargs=1 NBopen call NBopen(<f-args>)
 
+" get rid of swps
+set backupdir=/tmp//
+set directory=/tmp//
+
 " markdown folding off
 let g:vim_markdown_folding_disabled = 1
 
@@ -81,6 +87,8 @@ au BufNewFile,BufRead,BufWrite *.md syntax match Comment /\%^---\_.\{-}---$/
 let g:goyo_width=100
 
 function! s:goyo_enter()
+  set wraplinebreak tw=100
+  set formatoptions=ant
   let b:quitting = 0
   let b:quitting_bang = 0
   autocmd QuitPre <buffer> let b:quitting = 1
