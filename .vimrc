@@ -60,9 +60,15 @@ let g:ale_python_flake8_args="--ignore=E127,E126,E128"
 map AA :ALEToggle<CR>
 
 " get rid of trailing whitespace
-let g:better_whitespace_enabled=0
-autocmd BufRead,BufNewFile *.py EnableStripWhitespaceOnSave
-autocmd BufRead,BufNewFile *.py EnableWhitespace
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd FileType python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
 
 " open lab book
 function! NBopen(nbtarget)
@@ -87,7 +93,7 @@ au BufNewFile,BufRead,BufWrite *.md syntax match Comment /\%^---\_.\{-}---$/
 let g:goyo_width=100
 
 function! s:goyo_enter()
-  set wraplinebreak tw=100
+  set wrap linebreak tw=100
   set formatoptions=ant
   let b:quitting = 0
   let b:quitting_bang = 0
