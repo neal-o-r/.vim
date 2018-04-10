@@ -51,7 +51,7 @@ exec 'set softtabstop='.s:tabwidth
 map B oimport pdb; pdb.set_trace()<esc>
 
 " Python linting
-let g:ale_linters = {'python': ['flake8']}
+let g:ale_linters = {'python': ['flake8', 'flake8-mypy']}
 let g:ale_enabled = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
