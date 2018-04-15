@@ -46,6 +46,7 @@ exec 'set shiftwidth=' .s:tabwidth
 exec 'set softtabstop='.s:tabwidth
 :%retab!
 
+set modeline " use modelines sometimes
 
 " breakpoints
 map B oimport pdb; pdb.set_trace()<esc>
