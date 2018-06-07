@@ -49,7 +49,7 @@ exec 'set softtabstop='.s:tabwidth
 set modeline " use modelines sometimes
 
 " breakpoints
-map B oimport pdb; pdb.set_trace()<esc>
+map B oimport IPython; IPython.embed()<esc>
 
 " Python linting
 let g:ale_linters = {'python': ['flake8', 'flake8-mypy']}
