@@ -21,6 +21,10 @@ set pastetoggle=<F3>
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
 
+" search
+set hlsearch
+set incsearch
+
 " remap the tab keys
 map <Tab> <C-w>w
 map <Bar> :vsplit<CR>
