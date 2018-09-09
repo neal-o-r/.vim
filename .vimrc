@@ -24,6 +24,7 @@ let g:NERDTreeWinPos = "right"
 " search
 set hlsearch
 set incsearch
+nnoremap \ :noh<return>
 
 " remap the tab keys
 map <Tab> <C-w>w
