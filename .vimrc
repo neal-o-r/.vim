@@ -32,6 +32,7 @@ map <Bar> :vsplit<CR>
 
 " allow delete in normal mode
 nnoremap <bs> X
+set backspace=2 " this is apparently needed for mac
 
 " turn on adding visual block
 vmap <expr>  ++  VMATH_YankAndAnalyse()
@@ -57,7 +58,7 @@ set modeline " use modelines sometimes
 map B oimport IPython; IPython.embed()<esc>
 
 " Python linting
-let g:ale_linters = {'python': ['flake8', 'flake8-mypy']}
+let g:ale_linters = {'python': ['flake8', 'mypy']}
 let g:ale_enabled = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
