@@ -1,5 +1,3 @@
-" import pathogen
-execute pathogen#infect()  
 " turn off coloured background
 filetype plugin indent on
 if (has("autocmd") && !has("gui_running"))
