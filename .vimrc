@@ -51,6 +51,7 @@ exec 'set softtabstop='.s:tabwidth
 :%retab!
 
 set modeline " use modelines sometimes
+" # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
 " breakpoints
 map B oimport IPython; IPython.embed()<esc>
