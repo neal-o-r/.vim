@@ -101,6 +101,7 @@ let g:goyo_width=100
 function! s:goyo_enter()
   set wrap linebreak tw=100
   set formatoptions=ant
+  set spell spelllang=en
   let b:quitting = 0
   let b:quitting_bang = 0
   autocmd QuitPre <buffer> let b:quitting = 1
