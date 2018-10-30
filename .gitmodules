@@ -19,3 +19,6 @@
 [submodule "pack/plugins/start/vim-vmath"]
 	path = pack/plugins/start/vim-vmath
 	url = https://github.com/nixon/vim-vmath
+[submodule "pack/plugins/start/tabular"]
+	path = pack/plugins/start/tabular
+	url = git://github.com/godlygeek/tabular.git
