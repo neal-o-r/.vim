@@ -9,6 +9,14 @@ end
 syntax on
 colorscheme onedark
 
+" allow infinite undos, delete files older than 90 days
+set undofile
+set undodir=~/.vimundodir
+let s:undos = split(globpath(&undodir, '*'), "\n")
+call filter(s:undos, 'getftime(v:val) < localtime() - (60 * 60 * 24 * 90)')
+call map(s:undos, 'delete(v:val)')
+
+
 set noexpandtab " Make sure that every file uses real tabs, not spaces
 set shiftround  " Round indent to multiple of 'shiftwidth'
 set smartindent " Do smart indenting when starting a new line
