@@ -27,6 +27,9 @@ set pastetoggle=<F3>
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
 
+" map NERDCommenter
+map cc <leader>c<space>
+
 " search
 set hlsearch
 set incsearch
