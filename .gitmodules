@@ -22,3 +22,6 @@
 [submodule "pack/plugins/start/tabular"]
 	path = pack/plugins/start/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "pack/plugins/start/DidYouMean"]
+	path = pack/plugins/start/DidYouMean
+	url = https://github.com/EinfachToll/DidYouMean
