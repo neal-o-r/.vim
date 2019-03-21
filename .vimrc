@@ -113,6 +113,7 @@ function! s:goyo_enter()
   set wrap linebreak tw=100
   set formatoptions=ant
   set spell spelllang=en
+  inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
   let b:quitting = 0
   let b:quitting_bang = 0
   autocmd QuitPre <buffer> let b:quitting = 1
