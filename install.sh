@@ -9,7 +9,7 @@ python3-dev python3.6-dev ruby-dev lua5.1 liblua5.1-dev libperl-dev git
 sudo apt remove vim vim-runtime gvim
 sudo apt remove vim-tiny vim-common vim-gui-common vim-nox
 
-# check that python locations check out
+# check that python locations check out!!!
 cd ~
 git clone https://github.com/vim/vim.git
 cd vim
@@ -17,10 +17,9 @@ cd vim
             --enable-multibyte \
 	    --enable-rubyinterp=yes \
 	    --enable-pythoninterp=yes \
-            --with-python-config-dir=/usr/lib/python2.7/config \
+            --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ \
 	    --enable-python3interp=yes \
-	    # set this correctly
-	    --with-python3-config-dir=/usr/lib/python3.6/config \
+	    --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu/ \
             --enable-gui=gtk2 \
             --enable-cscope \
 	    --prefix=/usr/local
