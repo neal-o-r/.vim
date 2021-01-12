@@ -1,3 +1,5 @@
+"" GENERAL 
+
 " turn off coloured background
 filetype plugin indent on
 if (has("autocmd") && !has("gui_running"))
@@ -16,11 +18,24 @@ let s:undos = split(globpath(&undodir, '*'), "\n")
 call filter(s:undos, 'getftime(v:val) < localtime() - (60 * 60 * 24 * 90)')
 call map(s:undos, 'delete(v:val)')
 
+" get rid of swps
+set backupdir=/tmp//
+set directory=/tmp//
 
+"" get tabs right
 set noexpandtab " Make sure that every file uses real tabs, not spaces
 set shiftround  " Round indent to multiple of 'shiftwidth'
 set smartindent " Do smart indenting when starting a new line
 set autoindent  " Copy indent from current line, over to the new line
+
+" Set the tab width
+let s:tabwidth=4
+exec 'set tabstop='    .s:tabwidth
+exec 'set shiftwidth=' .s:tabwidth
+exec 'set softtabstop='.s:tabwidth
+:%retab!
+
+" for paste indenting
 set pastetoggle=<F3>
 
 " use NERDTree, set to right
@@ -35,7 +50,7 @@ set hlsearch
 set incsearch
 nnoremap \ :noh<return>
 
-" remap the tab keys
+" remap the tab keys for panes
 map <Tab> <C-w>w
 map <Bar> :vsplit<CR>
 
@@ -43,7 +58,7 @@ map <Bar> :vsplit<CR>
 nnoremap <bs> X
 set backspace=2 " this is apparently needed for mac
 
-" turn on adding visual block
+" turn on adding visual blocks
 vmap <expr>  ++  VMATH_YankAndAnalyse()
 nmap         ++  vip++
 
@@ -54,13 +69,9 @@ set ruler
 command Q q
 command W w
 
-" Set the tab width
-let s:tabwidth=8
-exec 'set tabstop='    .s:tabwidth
-exec 'set shiftwidth=' .s:tabwidth
-exec 'set softtabstop='.s:tabwidth
-:%retab!
 
+
+"" PYTHON
 set modeline " use modelines sometimes
 " # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
@@ -86,26 +97,18 @@ endfun
 
 autocmd FileType python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
+"" MARKDOWN
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
 
-" open lab book
-function! NBopen(nbtarget)
-	let t_nbyear=strpart(a:nbtarget, 0, 4)
-	let t_nbmonth=strpart(a:nbtarget, 4, 2)
-	let t_nbfile=a:nbtarget.".md"
-	let target_path="~/Desktop/labbook/".t_nbyear."/".t_nbmonth."/".t_nbfile
-	exec "edit ".target_path
+function! s:turn_on_spell()
+  set spell spelllang=en
+  inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 endfunction
-command! -nargs=1 NBopen call NBopen(<f-args>)
 
-" get rid of swps
-set backupdir=/tmp//
-set directory=/tmp//
+autocmd Filetype markdown call <SID>turn_on_spell()
 
-" markdown folding off
-let g:vim_markdown_folding_disabled = 1
-
-" change frontmatter color, setext headerstyle conflict
-au BufNewFile,BufRead,BufWrite *.md syntax match Comment /\%^---\_.\{-}---$/
 
 let g:goyo_width=100
 

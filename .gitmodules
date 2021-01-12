@@ -10,18 +10,12 @@
 [submodule "pack/plugins/start/nerdtree"]
 	path = pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree
-[submodule "pack/plugins/start/VimCompletesMe"]
-	path = pack/plugins/start/VimCompletesMe
-	url = https://github.com/ajh17/VimCompletesMe
-[submodule "pack/plugins/start/vim-markdown"]
-	path = pack/plugins/start/vim-markdown
-	url = https://github.com/gabrielelana/vim-markdown
 [submodule "pack/plugins/start/vim-vmath"]
 	path = pack/plugins/start/vim-vmath
 	url = https://github.com/nixon/vim-vmath
-[submodule "pack/plugins/start/tabular"]
-	path = pack/plugins/start/tabular
-	url = https://github.com/godlygeek/tabular.git
 [submodule "pack/plugins/start/DidYouMean"]
 	path = pack/plugins/start/DidYouMean
 	url = https://github.com/EinfachToll/DidYouMean
+[submodule "pack/plugins/start/vim-pandoc-syntax"]
+	path = pack/plugins/start/vim-pandoc-syntax
+	url = https://github.com/vim-pandoc/vim-pandoc-syntax.git

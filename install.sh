@@ -1,4 +1,5 @@
 #! /usr/bin/env bash
+# This doesn't work perfectly, Python linking is a pain, but this is a general outline
 
 # (or install Vim from binaries)
 sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev \
