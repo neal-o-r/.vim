@@ -100,9 +100,8 @@ autocmd FileType python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhi
 function! Smart_TabComplete()
   let line = getline('.')                         " current line
 
-  let substr = strpart(line, -1, col('.')+1)      " from the start of the current
-                                                  " line to one character right
-                                                  " of the cursor
+  let substr = strpart(line, -1, col('.'))        " from the start of the current
+                                                  " line to the cursor
   let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
   if (strlen(substr)==0)                          " nothing to match on empty string
     return "\<tab>"
@@ -119,7 +118,7 @@ function! Smart_TabComplete()
 endfunction
 
 " turn on autocomplete in python files only
-autocmd Filetype python inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
 "" MARKDOWN
 augroup pandoc_syntax
