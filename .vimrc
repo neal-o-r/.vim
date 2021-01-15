@@ -97,6 +97,11 @@ endfun
 
 autocmd FileType python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
+" highlight long lines
+highlight ColorColumn ctermbg=DarkRed guibg=DarkRed
+autocmd FileType python call matchadd('ColorColumn', '\%81v', 256)
+
+
 function! Smart_TabComplete()
   let line = getline('.')                         " current line
 
